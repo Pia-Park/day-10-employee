@@ -10,14 +10,14 @@ public abstract class Employee {
 	private String lName;
 	private String pNum;
 	private String email;
-	private LocalDate birthOfDate;
+	private LocalDate startOfDate;
 	
 	public Employee(String fName, String lName, String pNum, String email, int year, int month, int day) {
 		setfName(fName);
 		setlName(lName);
 		setPNum(pNum);
 		setEmail(email);
-		setBirthOfDate(year, month, day);
+		setStartOfDate(year, month, day);
 	}
 
 	public String getfName() {
@@ -66,11 +66,11 @@ public abstract class Employee {
 		}
 	}
 	
-	public void setBirthOfDate(int year, int month, int day) {
+	public void setStartOfDate(int year, int month, int day) {
 		if (year > 0 && month > 0 && day > 0) {
-	        this.birthOfDate = LocalDate.of(year, month, day);
+	        this.startOfDate = LocalDate.of(year, month, day);
 		} else {
-			this.birthOfDate = null;
+			this.startOfDate = null;
 		}
 		
 	}
@@ -82,7 +82,7 @@ public abstract class Employee {
 		return "Employee Name: " + fName + " " + lName
 				+"\nEmployee Phone Number: " + pNum
 				+"\nEmployee Email: " + email
-				+"\nEmployee Birth of Day: " + birthOfDate;
+				+"\nEmployee Start of Day: " + startOfDate;
 	}
 
 }

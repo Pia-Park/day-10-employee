@@ -4,30 +4,30 @@ import java.time.LocalDate;
 
 public class HourlyBase extends Employee {
 	
-	private double workHoursMonth;
+	private double workHours;
 	private double payRate;
 
 	public HourlyBase(String fName, String lName, String pNum, String email, 
-			int year, int month, int day, double workHoursMonth, double payRate) {
+			int year, int month, int day, double workHours, double payRate) {
 		super(fName, lName, pNum, email, year, month, day);
-		setWorkHoursMonth(workHoursMonth);
+		setWorkHours(workHours);
 		setPayRate(payRate);
 		
 	}
 	
-	public double getWorkHoursMonth() {
-		return workHoursMonth;
+	public double getWorkHours() {
+		return workHours;
 	}
 	
 	public double getPayRate() {
 		return payRate;
 	}
 	
-	public void setWorkHoursMonth(double workHoursMonth) {
-		if(workHoursMonth > 0) {
-			this.workHoursMonth = workHoursMonth;			
+	public void setWorkHours(double workHours) {
+		if(workHours > 0 && workHours <= 40) {
+			this.workHours = workHours;			
 		} else {
-			this.workHoursMonth = 0;
+			this.workHours = 0;
 		}
 	}
 	
@@ -41,7 +41,7 @@ public class HourlyBase extends Employee {
 
 	@Override
 	public double getIncome() {
-		return workHoursMonth * payRate;
+		return ((workHours * payRate) * 4) * 12;
 	}
 	
 	@Override
